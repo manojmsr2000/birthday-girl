@@ -79,7 +79,13 @@ function App() {
         autoplay: true,
       });
     }
-  }, [isPresentOpen, load, partyDone]);
+    if (enableAnimation) {
+      cleanup();
+      load(new URL("./assets/kiki flyin.wav", import.meta.url).href, {
+        autoplay: true,
+      });
+    }
+  }, [isPresentOpen, load, partyDone, enableAnimation]);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -224,8 +230,8 @@ function App() {
                   exit={{ opacity: 0, scale: 0 }}
                   style={{ position: "absolute", bottom: "10%" }}
                 >
-                  <Button variant="contained" onClick={handleFinishParty}>
-                    Go ahead!
+                  <Button variant="contained" style={{ fontFamily: "Indie Flower" }} onClick={handleFinishParty}>
+                    OH you're still here, click me!
                   </Button>
                 </motion.div>
               )}
