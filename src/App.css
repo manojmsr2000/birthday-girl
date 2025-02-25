@@ -4,11 +4,37 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
+  font-family: "Indie Flower", serif;
+}
+
+.App_with_background {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
     url("./assets/summer.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
-  font-family: "Indie Flower", serif;
+  background-position: center;
+  z-index: -1;
+}
+
+.end_of_party {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
+    url("./assets/kiki's sunset.png");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.App_with_party_background {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
+    url("./assets/party.gif");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
 }
 
 .cursor {
@@ -22,7 +48,36 @@
   top: 0;
 }
 
-@keyframes example {
+.cursor:hover {
+  background-image: url("./assets/cat-cursor.svg");
+  pointer-events: none;
+  background-size: contain;
+  height: 44px;
+  width: 44px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.happy-birthday-text {
+  text-align: center;
+  line-height: 2;
+  color: #fff;
+  text-shadow: 5px 5px 0 #ff005e, 10px 10px 0 #00d4ff;
+  animation: shadow-dance 2s infinite;
+}
+
+@keyframes shadow-dance {
+  0%,
+  100% {
+    text-shadow: 5px 5px 0 #ff005e, 10px 10px 0 #00d4ff;
+  }
+  50% {
+    text-shadow: -5px -5px 0 #00d4ff, -10px -10px 0 #ff005e;
+  }
+}
+
+@keyframes kiki {
   0% {
     top: 0;
     left: 0;
@@ -30,10 +85,12 @@
   50% {
     top: 20%;
     left: 20%;
+    scale: 1.5;
   }
   100% {
     left: 50%;
     top: 50%;
+    scale: 2;
   }
 }
 
@@ -41,7 +98,7 @@
   background-image: url("./assets/kiki.png");
   background-size: contain;
   position: absolute;
-  animation-name: example;
-  animation-duration: 10s;
+  animation-name: kiki;
+  animation-duration: 6s;
   animation-timing-function: linear;
 }
